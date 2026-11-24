@@ -1,15 +1,15 @@
 # Mini Project 4 — Traffic Simulation (C++)
 
-A university assignment in C++ that models a small traffic scenario: a hierarchy of vehicles moves through an intersection governed by a set of traffic rules.
+A university assignment in C++ that models a small traffic scenario: vehicles (`Car`, `Bus`, `EmergencyVehicle`) approach an `Intersection` governed by traffic rules (`TrafficLight`, `StopSign`, `SpeedLimitZone`), which decides how each vehicle may proceed.
 
 ## Classes
 
 | Class | Responsibility |
 |---|---|
 | `Vehicle` | Base class for all vehicles; `Car`, `Bus` and `EmergencyVehicle` inherit from it |
-| `TrafficElement` | Base class for road rules |
-| `TrafficLight` / `StopSign` / `SpeedLimitZone` | Concrete traffic rules |
-| `Intersection` | Combines vehicles and traffic rules into a working scenario |
+| `TrafficElement` | Base class for traffic rules |
+| `TrafficLight` / `StopSign` / `SpeedLimitZone` | Concrete rules applied at an intersection |
+| `Intersection` | Registers vehicles and rules, prints status and resolves movement |
 
 ## Build & Run
 
@@ -20,4 +20,6 @@ g++ -std=c++17 -O2 -o traffic main.cpp Vehicle.cpp Car.cpp Bus.cpp EmergencyVehi
 
 ## Concepts Demonstrated
 
-Inheritance and polymorphism through a vehicle hierarchy, and rule objects applied at an intersection.
+- Inheritance and polymorphism through a vehicle hierarchy
+- Rule objects (traffic elements) applied to a shared context
+- Operator overloading (`+` for speed, `>` for comparison, `==` for light state)
